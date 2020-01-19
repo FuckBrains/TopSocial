@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fa" xml:lang="fa">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Language" content="fa" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Mehdi Valinejad">
+
+	<meta name="samandehi" content="252453995"/>
+
+
+	<title>{{template "title" .}}</title>
+
+	<!-- Favicons from http://realfavicongenerator.net -->
+	<!--<link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-touch-icon-57x57.png">-->
+	<!--<link rel="apple-touch-icon" sizes="114x114" href="/static/favicons/apple-touch-icon-114x114.png">-->
+	<!--<link rel="apple-touch-icon" sizes="72x72" href="/static/favicons/apple-touch-icon-72x72.png">-->
+	<!--<link rel="apple-touch-icon" sizes="144x144" href="/static/favicons/apple-touch-icon-144x144.png">-->
+	<!--<link rel="apple-touch-icon" sizes="60x60" href="/static/favicons/apple-touch-icon-60x60.png">-->
+	<!--<link rel="apple-touch-icon" sizes="120x120" href="/static/favicons/apple-touch-icon-120x120.png">-->
+	<!--<link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon-76x76.png">-->
+	<!--<link rel="apple-touch-icon" sizes="152x152" href="/static/favicons/apple-touch-icon-152x152.png">-->
+	<!--<link rel="icon" type="image/png" href="/static/favicons/favicon-196x196.png" sizes="196x196">-->
+	<!--<link rel="icon" type="image/png" href="/static/favicons/favicon-160x160.png" sizes="160x160">-->
+	<!--<link rel="icon" type="image/png" href="/static/favicons/favicon-96x96.png" sizes="96x96">-->
+	<!--<link rel="icon" type="image/png" href="/static/favicons/favicon-16x16.png" sizes="16x16">-->
+	<!--<link rel="icon" type="image/png" href="/static/favicons/favicon-32x32.png" sizes="32x32">-->
+	<!--<meta name="msapplication-TileColor" content="#da532c">-->
+	<!--<meta name="msapplication-TileImage" content="/static/favicons/mstile-144x144.png">-->
+
+    <link rel="apple-touch-icon" sizes="180x180" href='{{ABSURL "/image/favicons/apple-touch-icon.png" }}'>
+    <link rel="icon" type="image/png" sizes="32x32" href='{{ABSURL "/image/favicons/favicon-32x32.png" }}'>
+    <link rel="icon" type="image/png" sizes="16x16" href='{{ABSURL "/image/favicons/favicon-16x16.png" }}'>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#bf2929">
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+	{{CSS "css/vendor.min.css"}}
+	{{CSS "css/topsocial.min.css"}}
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="//oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+		<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	{{template "head" .}}
+</head>
+
+<body>
+	<input id="BaseURI" type="hidden" value="{{.BaseURI}}">
+
+	<nav id="header" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">بستن</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand no-pad" href="/">
+					<img src='{{ABSURL "/image/topsocial-logo_circle_noname.png" }}' class="full-h"/>
+				</a>
+			</div>
+
+			<div id="navbar" class="navbar-collapse collapse">
+				<div class="navbar-form navbar-left" role="search">
+					<div class="input-group">
+						<!--<span class="input-group-btn">-->
+							<!--<button type="submit" class="btn btn-default color-red  no-color-input">-->
+								<!--<i class="topsocial-icons tsglyph_ic_search"></i>-->
+							<!--</button>-->
+						<!--</span>-->
+						<input type="text" id="mainsearch" class="form-control rtl typeahead no-color-input" data-search-url="/search/recent" autocomplete="off" onkeyup="SuggestSearchItems(this,'#navbar','col-sm-10 col-xs-11',event);" placeholder="جستجو...">
+					</div><!-- /input-group -->
+					<!--<div class="input-group top-social-select">-->
+						<!--<span class="input-group-addon">-->
+							<!--<a href="#"><span class="topsocial-icons tsglyph_instagram"></span></a>-->
+						<!--</span>-->
+						<!--<span class="input-group-addon">-->
+							<!--<a href="#"><span class="topsocial-icons tsglyph_facebook"></span></a>-->
+						<!--</span>-->
+						<!--<span class="input-group-addon">-->
+							<!--<a href="#" ><span class="topsocial-icons tsglyph_newspaper"></span></a>-->
+						<!--</span>-->
+					<!--</div>&lt;!&ndash; /input-group &ndash;&gt;-->
+				</div>
+				<div class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/">صفحه اصلی</a></li>
+						<!--<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">Nav header</li>
+								<li><a href="#">Separated link</a></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul>
+						</li>-->
+					</ul>
+					<!--<li><a href="../navbar/">Default</a></li>
+		<li><a href="../navbar-static-top/">Static top</a></li>
+		<li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>-->
+					</ul>
+
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+
+	</nav>
+	<div id="maincontainer" class="container over-hid">
+		{{template "content" .}}
+	</div>
+
+
+
+
+	<div id="footercontainer" class="container border-top-5 border-red">
+		{{template "footer" .}}
+	</div>
+
+	<!-- js -->
+	{{JS "js/vendor.min.js"}}
+	{{JS "js/topsocial.min.js"}}
+	{{template "scripts" .}}
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-105657626-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

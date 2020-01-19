@@ -1,0 +1,31 @@
+{{define "post"}}
+			<div class="img-aspect" style="padding-top:{{DEVIDE 100 .Thumbnail.Image_Aspect_Ratio}}%">
+				<a href="{{ URL_PostDetail .Key .Seo_Dashed_Url }}" class="post-detail-link btn btn-default btn-xs pull-right">
+						<img src="{{ABSURL .Thumbnail.Image_Url }}" alt="{{.Title}}" class="full-w-img" data-aspect-ratio="{{.Thumbnail.Image_Aspect_Ratio}}" >
+				</a>
+			</div>
+
+
+			<div class="post-cnt rtl">
+				<h2>{{.Title}} </h2>
+				<div class="post-icon"><span class="topsocial-icons tsglyph_ic_camera"></span></div>
+				<p>
+                    {{ABSTRACT .Body 100}}
+				</p>
+				<div class="post-hashtags">
+                    {{range $p := .Hashtags}}
+                        <a href='{{ URL_PostList "recent" . 1 }}' class="hashtag">
+                            {{.}}
+                        </a>
+                    {{end}}
+				</div>
+				<hr>
+				<div class="over-hid">
+					<small class="pull-left"> {{TIMEAGO .Source_Date}} </small>
+					<a href="{{ URL_PostDetail .Key .Seo_Dashed_Url }}" class="post-detail-link btn btn-default btn-xs pull-right">
+						مشاهده
+					</a>
+				</div>
+
+			</div>
+{{end}}

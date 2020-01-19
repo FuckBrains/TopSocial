@@ -1,0 +1,14 @@
+[Unit]
+After=arangodb3.service
+Description=Topsocial Instagram Updater Service
+
+[Service]
+Type=idle
+User=tscl
+ExecStart=/usr/bin/python3.6 -m core.insta_top_social_poster
+WorkingDirectory=/home/tscl/gopath/src/topsocial/src/
+
+[Install]
+WantedBy=multi-user.target
+
+

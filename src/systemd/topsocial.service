@@ -1,0 +1,15 @@
+[Unit]
+After=arangodb3.service
+Description=Topsocial Server service
+
+[Service]
+Environment=GOPATH=/home/tscl/gopath
+Type=notify
+User=tscl
+ExecStart=/home/tscl/gopath/src/topsocial/src/topsocial
+WorkingDirectory=/home/tscl/gopath/src/topsocial/src/
+WatchdogSec=30s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

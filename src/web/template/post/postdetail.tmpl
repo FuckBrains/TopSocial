@@ -1,0 +1,111 @@
+{{define "title" }}{{.post.Title }} | {{T "generaltitle" }}{{end}}
+{{define "head" }}{{end}}
+{{define "content"}}
+<div class="row post-detail-container  text-center bg-light-grey">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12 post-detail-wrapper no-pad white-card">
+        {{if eq .post.Media_Type 2 }}
+        <div class="img-aspect" style="padding-top:{{DEVIDE 100 .post.Media_Aspect_Ratio}}%">
+            <img src="{{ABSURL .post.Media_Url }}" class="full-w-img" alt="{{.post.Title }}" data-aspect-ratio="{{.post.Media_Aspect_Ratio}}" >
+        </div>
+        {{else if or (eq .post.Media_Type 3) (eq .post.Media_Type 4) }}
+        <!--<div id="jquery_jplayer_1" class="jp-jplayer" video-url="{{ABSURL .post.Media_Url}}"  style="padding-top:{{DEVIDE 100 .post.Media_Aspect_Ratio}}%"></div>-->
+        <div id="jp_container_1" class="jp-video jp-video-270p">
+        <div class="jp-type-playlist">
+            <div id="jquery_jplayer_1" class="jp-jplayer" data-video-url="{{ABSURL .post.Media_Url}}"  style="padding-top:{{.media_padding_top}}%"></div>
+
+            <div class="jp-gui">
+
+                <div class="jp-video-play">
+                    <a href="javascript:;" class="jp-video-play-icon" tabindex="1">播放</a>
+                </div>
+                <div class="jp-interface">
+                    <div class="jp-controls-holder">
+                        <ul class="jp-controls">
+                            <!--<li><a href="javascript:;" class="jp-previous" tabindex="1">上一个</a></li>-->
+                            <li><a href="javascript:;" class="jp-play" tabindex="1">播放</a></li>
+                            <li><a href="javascript:;" class="jp-pause" tabindex="1">暂停</a></li>
+                            <!--<li><a href="javascript:;" class="jp-next" tabindex="1">下一个</a></li>-->
+                            <li><a href="javascript:;" class="jp-stop" tabindex="1">停止</a></li>
+                            <li><a href="javascript:;" class="jp-mute" tabindex="1" title="静音">静音</a></li>
+                            <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="取消静音">取消静音</a></li>
+                            <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="最大音量">最大音量</a></li>
+                        </ul>
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value"></div>
+                        </div>
+                        <ul class="jp-toggles">
+                            <li><a href="javascript:;" class="jp-full-screen" tabindex="1" title="全屏">全屏</a></li>
+                            <li><a href="javascript:;" class="jp-restore-screen" tabindex="1" title="退出全屏">退出全屏</a></li>
+                            <!--<li><a href="javascript:;" class="jp-shuffle" tabindex="1" title="随机播放">随机播放</a></li>-->
+                            <!--<li><a href="javascript:;" class="jp-shuffle-off" tabindex="1" title="关闭随机">关闭随机</a></li>-->
+                            <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="重复播放">重复播放</a></li>
+                            <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="关闭重复">关闭重复</a></li>
+                        </ul>
+                    </div>
+                    <div class="jp-progress">
+                        <div class="jp-seek-bar">
+                            <div class="jp-play-bar"><i></i></div>
+                        </div>
+                    </div>
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                    <div class="jp-title">
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="jp-no-solution">
+                <span>Update Required</span>
+                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+            </div>
+        </div>
+    </div>
+        {{end}}
+
+
+        <div class="post-cnt rtl pad-top-bot-15 pad-r8-lf-15">
+            <h1><strong>{{.post.Title }}</strong> </h1>
+            <div class="post-icon mrg-top-bot-15">
+                <span class="topsocial-icons tsglyph_ic_camera"></span>
+            </div>
+            <p class="mrg-top-bot-15">
+                {{.post.Body}}
+            </p>
+            {{if .post.Urls_Extracted }}
+            <div class="text-center">
+                {{range $i, $p := .post.Urls_Extracted}}
+                    {{if eq $p.State 1}}
+                        <a href='{{ URL_PostExternalUrl $.post.Key $i }}' target="_blank">
+                           <strong>{{T "link" }}</strong>
+                        </a>
+                    {{else}}
+                        <a href='{{ $p.Url }}' target="_blank">
+                           <strong>{{T "link" }}</strong>
+                        </a>
+                    {{end}}
+
+                    <br />
+                {{end}}
+                <hr>
+            </div>
+
+            {{end}}
+            <div class="post-hashtags">
+                {{range $p := .post.Hashtags}}
+                    <a href='{{ URL_PostList "recent" . 1 }}' class="hashtag">
+                        {{.}}
+                    </a>
+                {{end}}
+            </div>
+            <hr>
+            <div class="text-center ">
+                <small> {{TIMEAGO .post.Source_Date}} </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}
+{{define "scripts" }}{{end}}

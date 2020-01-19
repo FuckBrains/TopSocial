@@ -1,0 +1,29 @@
+{
+  "submit": {
+    "other":  "تائید"
+  },
+  "yes": {
+    "other":  "بله"
+  },
+  "topsocial": {
+    "other":  "ینگه دنیا"
+  },
+  "generaltitle": {
+    "other":  "ینگه دنیا | بهترین ها و تازه های شبکه های اجتماعی"
+  },
+    "posts_recent":{
+      "other":  "جدید ترین پست های"
+    },
+  "search":{
+    "other":  "جستجو"
+  },
+  "link":{
+    "other":  "لینک"
+  },
+  "externallinkdetail":{
+    "other":  "نمایش منبع"
+  }
+
+
+
+}

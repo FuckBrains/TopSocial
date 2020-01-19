@@ -1,0 +1,38 @@
+﻿sudo yum -y update
+sudo yum install git
+sudo yum -y install yum-utils
+sudo yum -y groupinstall development
+sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+sudo yum -y install python36u
+sudo python3.6 -m ensurepip
+sudo yum -y install bind bind-utils
+
+sudo timedatectl set-timezone Iran
+
+
+sudo yum -y install epel-release
+sudo yum -y update
+sudo yum -y install redis
+sudo systemctl enable redis
+sudo systemctl start redis
+redis-cli ping
+#change password by edditing /etc/redis.conf at the "requiredpass" section
+sudo systemctl restart redis
+
+cd /etc/yum.repos.d/
+
+#sudo chown -R tscluser /home/tscl/gopath/src/topsocial/src/cdn/content
+
+sudo yum -y install nginx
+sudo systemctl enable nginx
+
+#sudo firewall-cmd --zone=public --add-port=9199/tcp --permanent
+sudo firewall-cmd --permanent --zone=public --add-service=http 
+sudo firewall-cmd --permanent --zone=public --add-service=https
+sudo firewall-cmd --reload
+
+sudo yum -y install yum-utils
+sudo yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+
+
+

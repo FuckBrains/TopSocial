@@ -1,0 +1,36 @@
+
+######### DATABASE ##########
+sudo yum -y install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm
+sudo yum -y install postgresql10
+sudo yum -y install postgresql10-server
+
+sudo /usr/pgsql-10/bin/postgresql-10-setup initdb
+sudo systemctl enable postgresql-10
+sudo systemctl start postgresql-10
+
+# for windows: net user /add tscluser 1
+
+sudo passwd postgres
+sudo adduser tscluser
+sudo passwd tscluser
+su - postgres
+psql -d template1 -U postgres
+
+
+ALTER USER postgres WITH PASSWORD '1'
+CREATE USER tscluser WITH PASSWORD '1';
+
+CREATE DATABASE tscl
+ OWNER =  tscluser
+ TEMPLATE = template0
+ ENCODING = 'UTF-8'
+ LC_COLLATE = 'C'
+ LC_CTYPE = 'C';
+
+
+GRANT ALL PRIVILEGES ON DATABASE tscl to tscluser;
+\q
+su - tscl
+psql -d tscl-U tscluser;
+
+######### END DATABASE ##########

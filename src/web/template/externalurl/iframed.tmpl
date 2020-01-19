@@ -1,0 +1,32 @@
+{{define "title" }}{{ .title }} - {{T "externallinkdetail" }} | {{T "generaltitle" }}{{end}}
+{{define "head" }}{{end}}
+{{define "content"}}
+
+<div class="row" >
+    <iframe src="{{.url_to_iframe }}" frameborder="0" class="full-w" onload="setFullHeightIframe(this)" style=" width: 1px;min-width: 100%;*width: 100%;"></iframe>
+
+</div>
+
+
+{{end}}
+{{define "scripts" }}
+<script>
+
+function setFullHeightIframe(elem){
+    var headerHeight = $("#header").outerHeight();
+    var footerHeight = $("#footercontainer").outerHeight();
+    var windowsHeight = $(window).outerHeight();
+    var toSetHeight = windowsHeight - footerHeight - headerHeight - 2;
+
+    $(elem).height(toSetHeight+"px" );
+}
+
+$(document).ready(function(){
+    $(window).resize(function(){
+        setFullHeightIframe($("iframe"))
+    });
+})
+
+setFullHeightIframe($("iframe"))
+</script>
+{{end}}

@@ -1,0 +1,4 @@
+initdb -U postgres -A password --auth md5 -E utf8 --no-locale -W -D {root}\data
+{root}\bin\pg_ctl.exe -D "{root}\data" -l "{root}\log\pgsql.log" start
+{root}\bin\pg_ctl.exe -D "{root}\data" -l "{root}\log\pgsql.log" stop
+{root}\bin\pg_ctl.exe register -N "postgresql96" -U "NETWORK SERVICE" -D "{root}\data" -w

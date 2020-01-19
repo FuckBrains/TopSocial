@@ -1,0 +1,9 @@
+{{define "posts"}}
+        <div class="page-start post no-mrg" data-page-url="{{ $.thisPageURL }}" ></div>
+        {{range $n := .posts}}
+            <div class="post scrollinglistitem {{if (gt .Thumbnail.Image_Aspect_Ratio 1.5) }}  {{end}}" on data-page="{{ $.pageNum }}">
+			    {{template "post" .}}
+            </div>
+		{{end}}
+
+{{end}}

@@ -1,0 +1,7 @@
+{{define "hashtags"}}
+    {{range $n := .hashtags}}
+        <a href='{{ URL_PostList "recent" .Hashtag 1 }}' class="hashtag">
+            {{.Hashtag}}
+        </a>
+    {{end}}
+{{end}}

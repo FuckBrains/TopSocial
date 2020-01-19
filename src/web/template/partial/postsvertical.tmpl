@@ -1,0 +1,18 @@
+{{define "postsvertical"}}
+        <div class="item {{if eq .pageNum 1 }}active{{end}}" data-url="{{ URL_RecentPostList .fromdate .mediatype .pageNum }}" data-next-page-url="{{.nextPageURLForJson}}" data-page-url="{{ $.thisPageURL }}" >
+             {{range $n := .posts}}
+                <div class="col-sm-6 col-xs-6 pad-top-bot-15" data-page="{{ $.pageNum }}">
+                    <a href="{{ URL_PostDetail .Key .Seo_Dashed_Url }}">
+                            <img alt="" class="full-w" src="{{ABSURL .Thumbnail.Image_Url }}" data-holder-rendered="true">
+                        <div class="rtl pad-top-bot-10 text-center">
+                            <h4 class="media-heading">{{.Title}}</h4>
+                            <p>
+                                {{ABSTRACT .Body 100}}
+                                </p>
+                        </div>
+
+                    </a>
+                </div>
+            {{end}}
+        </div>
+{{end}}

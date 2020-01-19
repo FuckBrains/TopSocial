@@ -1,0 +1,24 @@
+
+{{define "search"}}
+<div class="col-sm-4 search-suggestion-box-area pad-top-bot-15">
+    {{range $n := .hashtags}}
+        <a href='{{ URL_PostList "recent" .Hashtag 1 }}' class="hashtag">
+            {{.Hashtag}}
+        </a>
+    {{end}}
+</div>
+<div class="col-sm-8 search-suggestion-box-area pad-top-bot-15">
+     {{range $n := .posts}}
+         <a href="{{ URL_PostDetail .Key .Seo_Dashed_Url }}" class="media col-sm-6">
+                    <div class="media-body text-right rtl pad-top-bot-10">
+                        <h6 class="media-heading">{{ABSTRACT .Title 60}}</h6>
+                         {{ABSTRACT .Body 60}}
+                    </div>
+                    <div class="media-right">
+                            <img alt="{{ .Title }}" class="media-object" data-src="holder.js/64x64" src="{{ABSURL .Thumbnail.Image_Url }}" data-holder-rendered="true" style="width: 64px; height: 64px;">
+                    </div>
+                </a>
+     {{end}}
+</div>
+
+{{end}}

@@ -1,0 +1,78 @@
+{
+	"Database": {
+		"Type": "ArangoDB",
+        "ArangoDB":{
+          "host":"http://127.0.0.1:8529",
+          "user":"tscluser",
+          "password":"",
+          "log":false
+        }
+	},
+	"Email": {
+		"Username": "",
+		"Password": "",
+		"Hostname": "",
+		"Port": 25,
+		"From": ""
+	},
+	"Recaptcha": {
+		"Enabled": false,
+		"Secret": "",
+		"SiteKey": ""
+	},
+	"Server": {
+		"Hostname": "",
+		"UseHTTP": true,
+		"UseHTTPS": false,
+		"HTTPPort": 8067,
+		"HTTPSPort": 443,
+		"CertFile": "tls/server.crt",
+		"KeyFile": "tls/server.key"
+	},
+	"CDNServer": {
+		"Hostname": "",
+		"UseHTTP": true,
+		"UseHTTPS": false,
+		"HTTPPort": 8068,
+		"HTTPSPort": 443,
+		"CertFile": "tls/server.crt",
+		"KeyFile": "tls/server.key"
+	},
+	"Session": {
+		"SecretKey": "",
+		"Name": "gosess",
+		"Options": {
+			"Path": "/",
+			"Domain": "",
+			"MaxAge": 28800,
+			"Secure": false,
+			"HttpOnly": true
+		}
+	},
+	"Template": {
+		"Root": "base",
+		"Children": [
+			"partial/menu",
+			"partial/footer",
+			"partial/posts",
+			"partial/post"
+		],
+		"Singles": {
+         	"partial/posts":["partial/post"],
+         	"post/list":["partial/posts",
+				"partial/postshorizontal",
+				"partial/postsvertical",
+				"partial/hashtags",
+				"partial/search"
+			]
+
+        }
+	},
+	"View": {
+		"BaseURI": "/",
+		"Extension": "tmpl",
+		"Folder": "web/template",
+		"Name": "blank",
+		"Caching": false
+	}
+}

@@ -1,0 +1,48 @@
+{
+  "reldate_justnow": {
+    "other":  "همین الان"
+  },
+  "reldate_lessthanminute": {
+    "other":  "لحضاتی پیش"
+  },
+  "reldate_oneminute": {
+    "other":  "یک دقیقه پیش"
+  },
+  "reldate_minutesago": {
+    "other":  "دقیقه پیش {{.Count}} "
+  },
+  "reldate_onehour": {
+    "other":  "یک ساعت پیش"
+  },
+  "reldate_hoursago": {
+    "other":  "ساعت پیش {{.Count}}"
+  },
+  "reldate_yesterday": {
+    "other":  "دیروز"
+  },
+  "reldate_daysago": {
+    "other":  "روز پیش {{.Count}}"
+  },
+  "reldate_lastweek": {
+    "other":  "هفته پیش"
+  },
+  "reldate_twoweeksago": {
+    "other":  "دو هفته پیش"
+  },
+  "reldate_threeweeksago": {
+    "other":  "سه هفته پبش"
+  },
+  "reldate_lastmonth": {
+    "other":  "ماه پبش"
+  },
+  "reldate_monthsago": {
+    "other":  " {{.Count}}  ماه پیش"
+  },
+  "reldate_lastyear": {
+    "other":  "پارسال"
+  },
+  "reldate_yearsago": {
+    "other":  "سال پیش {{.Count}}"
+  }
+
+}
